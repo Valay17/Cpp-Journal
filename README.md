@@ -7,9 +7,6 @@ benchmark output from the target machine.
 Each entry corresponds to a post published on LinkedIn. The repo is the
 proof-of-work version: working examples, measured numbers, no hand-waving.
 
-Status: updated daily.
-
----
 
 ## What "depth" means here
 
@@ -18,8 +15,6 @@ here includes at least one detail a surface-level explanation would miss:
 the actual hardware mechanism behind a behavior, the specific standards-level
 tool that addresses it, or the number that shows the cost instead of just
 describing it.
-
----
 
 ## How entries are structured
 
@@ -36,7 +31,6 @@ One file is used when the benchmark itself is the clearest way to show the
 concept. A second file is added only when a clean conceptual example and a
 timing harness genuinely serve different purposes.
 
----
 
 ## Domains
 
@@ -56,7 +50,6 @@ timing harness genuinely serve different purposes.
 Folders are created as entries are published. The table above is the map,
 not a promise that every folder exists yet.
 
----
 
 ## Blog
 
