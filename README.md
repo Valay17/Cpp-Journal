@@ -4,13 +4,11 @@ A living knowledge base of C++ internals, low-level systems, and performance eng
 
 Every post published on LinkedIn has corresponding code here. The repo grows alongside the post cadence and serves as a reference for enthusiasts to find working examples and benchmarks that demonstrate the real-world impact of these techniques.
 
----
 
 ## What this is
 
 Each LinkedIn post covers one specific concept — a CPU quirk, a compiler behavior, a memory model subtlety, or a performance trap. The code here is the runnable, benchmarked version of whatever was posted. Nothing is fabricated: output placeholders are left blank and filled in after actually running the code on the target machine.
 
----
 
 ## Domains
 
@@ -27,7 +25,6 @@ Each LinkedIn post covers one specific concept — a CPU quirk, a compiler behav
 | [low-latency/](low-latency/) | Lock-free, wait-free, RDTSC, kernel bypass, CPU pinning, OS jitter |
 | [concurrency/](concurrency/) | Atomics, acquire-release, sequential consistency, data race analysis |
 
----
 
 ## Folder structure
 
