@@ -1,43 +1,64 @@
 # C++ Journal
 
-A living knowledge base of C++ internals, low-level systems, and performance engineering.
+A growing collection of C++ internals, low-level systems, and performance
+engineering topics. Every entry pairs a concept with runnable code and real
+benchmark output from the target machine.
 
-Every post published on LinkedIn has corresponding code here. The repo grows alongside the post cadence and serves as a reference for enthusiasts to find working examples and benchmarks that demonstrate the real-world impact of these techniques.
+Each entry corresponds to a post published on LinkedIn. The repo is the
+proof-of-work version: working examples, measured numbers, no hand-waving.
 
----
-
-## What this is
-
-Each LinkedIn post covers one specific concept — a CPU quirk, a compiler behavior, a memory model subtlety, or a performance trap. The code here is the runnable, benchmarked version of whatever was posted. Nothing is fabricated: output placeholders are left blank and filled in after actually running the code on the target machine.
-
----
-
-## Domains
-
-| Folder | Topics |
-|---|---|
-| [language/](language/) | Core language mechanics, ODR, lifetime, value categories, copy/move semantics |
-| [compiler/](compiler/) | Codegen, optimization passes, inlining, constant folding, reading assembly |
-| [cpu/](cpu/) | Caches, branch prediction, pipeline stalls, false sharing, prefetching |
-| [memory/](memory/) | Allocators, alignment, NUMA, memory ordering, cache-line layout |
-| [intrinsics/](intrinsics/) | SIMD, SSE/AVX/AVX-512, manual vectorization, throughput vs latency |
-| [stl/](stl/) | STL internals, iterator invalidation, allocator-aware containers, SBO |
-| [templates/](templates/) | Template metaprogramming, SFINAE, concepts, CRTP, compile-time cost |
-| [performance/](performance/) | Profiling, perf, flamegraphs, PGO, LTO, hot/cold splitting |
-| [low-latency/](low-latency/) | Lock-free, wait-free, RDTSC, kernel bypass, CPU pinning, OS jitter |
-| [concurrency/](concurrency/) | Atomics, acquire-release, sequential consistency, data race analysis |
+Status: updated daily.
 
 ---
 
-## Folder structure
+## What "depth" means here
 
-Each topic is a subdirectory under its domain, named in lowercase with hyphens:
+Most explanations of these topics stop at the conceptual level. Each entry
+here includes at least one detail a surface-level explanation would miss:
+the actual hardware mechanism behind a behavior, the specific standards-level
+tool that addresses it, or the number that shows the cost instead of just
+describing it.
+
+---
+
+## How entries are structured
+
+Every topic lives in its own folder, named in lowercase with hyphens:
 
 ```
 /<domain>/<topic-slug>/
     README.md
     benchmark.cpp       # timing-focused demonstration
-    main.cpp            # standalone concept demo (if needed separately)
+    main.cpp            # standalone concept demo (only when it adds value)
 ```
 
-One file is used when the benchmark is the demonstration. Two files are used when a clean conceptual example and a timing harness genuinely serve different purposes.
+One file is used when the benchmark itself is the clearest way to show the
+concept. A second file is added only when a clean conceptual example and a
+timing harness genuinely serve different purposes.
+
+---
+
+## Domains
+
+| Folder | Covers |
+|---|---|
+| [language/](language/) | Object model, lifetime, value categories, ODR, copy/move semantics |
+| [compiler/](compiler/) | Codegen, optimization passes, inlining, constant folding, reading assembly |
+| [cpu/](cpu/) | Cache hierarchy, branch prediction, pipeline stalls, false sharing, prefetching |
+| [memory/](memory/) | Allocators, alignment, NUMA, memory ordering, cache-line layout |
+| [intrinsics/](intrinsics/) | SIMD, SSE/AVX/AVX-512, manual vectorization, throughput vs latency |
+| [stl/](stl/) | Container internals, iterator invalidation, allocator-aware containers, SSO |
+| [templates/](templates/) | SFINAE, concepts, CRTP, constexpr, compile-time cost |
+| [performance/](performance/) | Profiling, flamegraphs, PGO, LTO, hot/cold splitting |
+| [low-latency/](low-latency/) | Lock-free structures, RDTSC, kernel bypass, CPU pinning, OS jitter |
+| [concurrency/](concurrency/) | Atomics, acquire-release, sequential consistency, data races |
+
+Folders are created as entries are published. The table above is the map,
+not a promise that every folder exists yet.
+
+---
+
+## Blog
+
+Longer write-ups for topics that warrant more depth than a LinkedIn post
+allows: [link here once live]
