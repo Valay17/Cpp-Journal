@@ -1,4 +1,7 @@
-# C++ Journal
+<div align="center">
+
+<h1> <p>C++ Journal</p> </h1>
+</div>
 
 A living knowledge base of C++ internals, low-level systems, and performance
 engineering.
