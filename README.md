@@ -2,7 +2,7 @@
 
 A living knowledge base of C++ internals, low-level systems, and performance engineering.
 
-Every post published on LinkedIn has corresponding code here. The repo grows alongside the post cadence and serves as a proof-of-work archive for recruiters and engineers who find the profile.
+Every post published on LinkedIn has corresponding code here. The repo grows alongside the post cadence and serves as a reference for enthusiasts to find working examples and benchmarks that demonstrate the real-world impact of these techniques.
 
 ---
 
