@@ -1,0 +1,19 @@
+# Compiled binaries
+benchmark
+main
+*.o
+*.out
+a.out
+
+# perf data
+perf.data
+perf.data.old
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
