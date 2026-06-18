@@ -1,6 +1,6 @@
 # False Sharing
 
-Full writeup: Valay17.github.io/Portfolio/blog/cpu/false-sharing
+Full writeup: https://valay17.github.io/Portfolio/blog/cpu/false-sharing/
 
 Two threads writing to independent variables can still destroy each other's
 performance if those variables share a CPU cache line. The CPU does not move
