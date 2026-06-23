@@ -1,6 +1,6 @@
 # Acquire/Release, Sequentially_Consistent Memory Ordering
 
-Full writeup:https://valay17.github.io/Portfolio/blog/concurrency/memory-order
+Full writeup: https://valay17.github.io/Portfolio/blog/concurrency/memory-order
 
 A write that happens earlier in your code can still be seen out of order
 by a different thread. Acquire and release orderings on atomics create a
