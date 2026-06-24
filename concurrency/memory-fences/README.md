@@ -142,7 +142,7 @@ objdump disassembly with_seq_cst_fence:
   25:   ret
 
 ```
-Info on the lock x86 instruction: it is not an instruction itself, it is an instruction prefix, which applies to the following instruction. It is applied to something that does a read-modify-write(RMW) on memory. 
+Info on the lock x86 instruction: it is not an instruction itself, it is an instruction prefix, which applies to its following instruction. It is applied to something that does a read-modify-write(RMW) on memory. 
 
 The LOCK prefix ensures that the CPU has exclusive ownership of the appropriate cache line for the duration of the operation, and provides certain additional ordering guarantees. This may be achieved by asserting a bus lock, but the CPU will avoid this where possible. If the bus is locked then it is only for the duration of the locked instruction.
 
