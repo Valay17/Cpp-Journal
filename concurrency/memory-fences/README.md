@@ -89,8 +89,7 @@ exactly. Any other value, or any nonzero "both entered together" count, is
 evidence the reordering happened.
 
 This is a data race in the no-fence case, the shared counter
-increment is unprotected. ThreadSanitizer will correctly flag this one,
-unlike a previous post's demo where nothing was actually undefined.
+increment is unprotected. ThreadSanitizer will correctly flag this one.
 
 ## Run: fence-codegen.cpp
 
