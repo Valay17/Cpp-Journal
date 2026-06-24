@@ -88,7 +88,7 @@ exclusion held throughout, the counter should equal the iteration count
 exactly. Any other value, or any nonzero "both entered together" count, is
 evidence the reordering happened.
 
-This is genuinely a data race in the no-fence case, the shared counter
+This is a data race in the no-fence case, the shared counter
 increment is unprotected. ThreadSanitizer will correctly flag this one,
 unlike a previous post's demo where nothing was actually undefined.
 
