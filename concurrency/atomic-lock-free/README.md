@@ -65,13 +65,13 @@ objdump -d -M intel --no-show-raw-insn lock-free-instruction.o
 ```asm
 0000000000000000 <_Z7store_4v>:
    0:   mov    rax,QWORD PTR [rip+0x0]
-   7:   mov    DWORD PTR [rax],0x0      <-- single inline store, no call
+   7:   mov    DWORD PTR [rax],0x0                <-- single inline store, no call
    d:   xor    eax,eax
    f:   ret
 
 0000000000000010 <_Z7store_8v>:
   10:   mov    rax,QWORD PTR [rip+0x0]
-  17:   mov    QWORD PTR [rax],0x0      <-- single inline store, no call
+  17:   mov    QWORD PTR [rax],0x0               <-- single inline store, no call
   1e:   xor    eax,eax
   20:   ret
 
@@ -80,7 +80,7 @@ objdump -d -M intel --no-show-raw-insn lock-free-instruction.o
   37:   xor    ecx,ecx
   39:   xor    esi,esi
   3b:   xor    edx,edx
-  3d:   jmp    42 <_Z8store_16v+0x12>   <-- jumps into a helper, not a plain inline mov like store_4/8
+  3d:   jmp    42 <_Z8store_16v+0x12>            <-- jumps into a helper, not a plain inline mov like store_4/8
 
 0000000000000050 <_Z8store_32v>:
   50:   push   rbp
@@ -93,7 +93,7 @@ objdump -d -M intel --no-show-raw-insn lock-free-instruction.o
   79:   lea    rdx,[rbp-0x30]
   7d:   movaps XMMWORD PTR [rbp-0x30],xmm0
   81:   movaps XMMWORD PTR [rbp-0x20],xmm0
-  85:   call   8a <_Z8store_32v+0x3a>   <-- this is the libatomic call, the actual fallback
+  85:   call   8a <_Z8store_32v+0x3a>             <-- this is the libatomic call, the actual fallback
   99:   leave
   9a:   ret
 
@@ -118,7 +118,7 @@ store_16():
         xor     esi, esi
         xor     edx, edx
         mov     edi, OFFSET FLAT:a16
-        jmp     __atomic_store_16       <-- jumps into a helper, not a plain inline mov like store_4/8
+        jmp     __atomic_store_16                  <-- jumps into a helper, not a plain inline mov like store_4/8
 store_32():
         sub     rsp, 40
         pxor    xmm0, xmm0
@@ -128,7 +128,7 @@ store_32():
         mov     edi, 32
         movaps  XMMWORD PTR [rsp], xmm0
         movaps  XMMWORD PTR [rsp+16], xmm0
-        call    __atomic_store          <-- this is the libatomic call, the actual fallback
+        call    __atomic_store                    <-- this is the libatomic call, the actual fallback
         add     rsp, 40
         ret
 ```
