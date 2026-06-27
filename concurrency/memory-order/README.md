@@ -120,6 +120,9 @@ reader2: saw x = 1
 
 With seq_cst, reader1 and reader2 are placed on the same global timeline as the writer's stores to x and y. They cannot disagree about the relative order x and y became visible, the way acquire/release alone permitted.
 ```
+`acquire-release.cpp` ran the full two million attempts on this machine and never found a disagreement, exactly the outcome predicted above. This is x86's hardware ordering masking a guarantee the standard never actually made, not the demo failing to find something that does not exist. The standard still permits reader1 and reader2 to disagree about whether x or y became visible first when only acquire and release are used, and that permission stays real even on a run where nothing visibly went wrong, since the absence of an observed violation on one architecture is not the same as a guarantee holding under the standard.
+
+`seq-cst.cpp` shows both readers agreeing completely: reader1 sees `x = 1` then `y = 1`, reader2 sees `y = 1` then `x = 1`, and both readers observed both variables already at their final value by the time each one was checked. There is no disagreement to find here, by construction, since seq_cst places every operation on x and y into one global order both readers are bound by. The two outputs together show the actual difference between the two orderings directly: acquire/release left room for a disagreement that this specific run did not happen to surface, while seq_cst removed that room entirely, and the output reflects exactly that distinction rather than two runs that simply looked the same.
 
 ## Environment
 
