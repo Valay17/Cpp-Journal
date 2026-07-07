@@ -56,7 +56,7 @@ std::vector<float> add_simd(const std::vector<float>& a, const std::vector<float
 ```bash
 g++ -O2 -std=c++20 -march=native main.cpp -o main && ./main
 ```
-`-march=native` targets the CPU actually running the build, required here since `<immintrin.h>`'s AVX intrinsics do not compile at all without an AVX-enabled target. Under Nix, this flag may be stripped for build reproducibility, use `-mavx2` instead if so. Expect `outputs match: yes`.
+`-march=native` targets the CPU actually running the build, required here since `<immintrin.h>`'s AVX intrinsics do not compile at all without an AVX-enabled target.
 
 ## Run: codegen, default build
 
