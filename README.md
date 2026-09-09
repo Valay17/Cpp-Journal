@@ -9,7 +9,7 @@ engineering.
 Every post published on LinkedIn has corresponding code here. The repo
 grows daily. Clone any folder, build it, and run the benchmarks yourself.
 
-Status: updated daily.
+Status: updated daily(I try to).
 
 
 ## What this is
