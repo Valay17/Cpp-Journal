@@ -24,18 +24,16 @@ the runnable, benchmarked version of whatever was posted.
 
 | Folder | Topics |
 |---|---|
-| [language/](language/) | Core language mechanics, ODR, lifetime, value categories, copy/move semantics |
 | [compiler/](compiler/) | Codegen, optimization passes, inlining, constant folding, reading assembly |
+| [concurrency/](concurrency/) | Atomics, acquire-release, sequential consistency, data race analysis |
 | [cpu/](cpu/) | Caches, branch prediction, pipeline stalls, false sharing, prefetching |
-| [memory/](memory/) | Allocators, alignment, NUMA, memory ordering, cache-line layout |
 | [intrinsics/](intrinsics/) | SIMD, SSE/AVX/AVX-512, manual vectorization, throughput vs latency |
+| [language/](language/) | Core language mechanics, ODR, lifetime, value categories, copy/move semantics |
+| [low-latency/](low-latency/) | Lock-free, wait-free, RDTSC, kernel bypass, CPU pinning, OS jitter |
+| [memory/](memory/) | Allocators, alignment, NUMA, memory ordering, cache-line layout |
+| [performance/](performance/) | Profiling, perf, flamegraphs, PGO, LTO, hot/cold splitting |
 | [stl/](stl/) | STL internals, iterator invalidation, allocator-aware containers, SBO |
 | [templates/](templates/) | Template metaprogramming, SFINAE, concepts, CRTP, compile-time cost |
-| [performance/](performance/) | Profiling, perf, flamegraphs, PGO, LTO, hot/cold splitting |
-| [low-latency/](low-latency/) | Lock-free, wait-free, RDTSC, kernel bypass, CPU pinning, OS jitter |
-| [concurrency/](concurrency/) | Atomics, acquire-release, sequential consistency, data race analysis |
-
-
 
 ## Folder structure
 
