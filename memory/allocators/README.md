@@ -14,11 +14,11 @@ Because memory and objects are separate, the memory can come from anywhere. `std
 
 Three files, one per claim group.
 
-`allocator-reserve_resize.cpp` uses a small allocator that prints each `allocate` call and counts each `construct` call. `reserve(100)` produces one `allocate(100)` and zero constructs. `resize(100)` produces no new allocation and 100 constructs.
+`reserve_resize.cpp` uses a small allocator that prints each `allocate` call and counts each `construct` call. `reserve(100)` produces one `allocate(100)` and zero constructs. `resize(100)` produces no new allocation and 100 constructs.
 
-`allocator-shared.cpp` replaces the global `operator new` to count heap allocations and record their size. `allocate_shared<int>` makes one allocation, a 24-byte block holding the reference counts and the `int`. `shared_ptr<int>(new int)` makes two, the `int` and a separate control block.
+`shared.cpp` replaces the global `operator new` to count heap allocations and record their size. `allocate_shared<int>` makes one allocation, a 24-byte block holding the reference counts and the `int`. `shared_ptr<int>(new int)` makes two, the `int` and a separate control block.
 
-`allocator-pmr.cpp` runs the same 100-element `push_back` loop on a plain `std::vector` and on a `std::pmr::vector` backed by a stack buffer, counting heap allocations in both.
+`pmr.cpp` runs the same 100-element `push_back` loop on a plain `std::vector` and on a `std::pmr::vector` backed by a stack buffer, counting heap allocations in both.
 
 ## Key insight
 
@@ -37,10 +37,10 @@ for (int i = 0; i < 100; ++i)
 
 Same container, same code. Only the source of the bytes changed.
 
-## Run: allocator-reserve_resize.cpp
+## Run: reserve_resize.cpp
 
 ```bash
-g++ -std=c++20 -O2 allocator-reserve_resize.cpp -o reserve_resize
+g++ -std=c++20 -O2 reserve_resize.cpp -o reserve_resize
 ./reserve_resize
 ```
 `-O2` is the standard optimization level used across this repo.
@@ -54,10 +54,10 @@ resize(100):
 ```
 `reserve(100)` calls `allocate` once for 100 slots and constructs nothing, so the size stays 0. `resize(100)` allocates nothing new, since the capacity already covers it, and calls `construct` 100 times, once per element, which is what moves the size to 100.
 
-## Run: allocator-shared.cpp
+## Run: shared.cpp
 
 ```bash
-g++ -std=c++20 -O2 allocator-shared.cpp -o shared
+g++ -std=c++20 -O2 shared.cpp -o shared
 ./shared
 ```
 
@@ -67,10 +67,10 @@ shared_ptr<int>(new int): allocations=2
 ```
 `allocate_shared<int>` asks its allocator for a single 24-byte block. The reference counts and the `int` share that block, and the `int` is built in a slice of it. `shared_ptr<int>(new int)` allocates the `int` first and then a separate control block, so it makes two allocations.
 
-## Run: allocator-pmr.cpp
+## Run: pmr.cpp
 
 ```bash
-g++ -std=c++20 -O2 allocator-pmr.cpp -o pmr
+g++ -std=c++20 -O2 pmr.cpp -o pmr
 ./pmr
 ```
 
